@@ -1,0 +1,91 @@
+/* Retro theme colors and styling */
+
+:root {
+    /* Player colors */
+    --color-player1: #0000FF;
+    --color-player2: #FF0000;
+    --color-neutral: #808080;
+
+    /* Terrain colors */
+    --color-water: #0080FF;
+    --color-land: #00FF00;
+    --color-forest: #008800;
+    --color-mountain: #A0A0A0;
+
+    /* City colors */
+    --color-city: #FFFF00;
+
+    /* UI colors */
+    --color-bg: #000000;
+    --color-panel: #2a2a2a;
+    --color-border: #4a4a4a;
+    --color-highlight: #FFFF00;
+    --color-text: #FFFFFF;
+}
+
+/* Pixel-perfect rendering */
+canvas {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Retro scanline effect (optional) */
+.scanlines {
+    position: relative;
+    overflow: hidden;
+}
+
+.scanlines::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Retro button press effect */
+.game-btn {
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.game-btn:active {
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Color-coded messages in log */
+.log-player1 {
+    color: var(--color-player1);
+}
+
+.log-player2 {
+    color: var(--color-player2);
+}
+
+.log-neutral {
+    color: var(--color-neutral);
+}
+
+.log-combat {
+    color: #FF8800;
+}
+
+.log-production {
+    color: #00FFFF;
+}
+
+.log-victory {
+    color: #00FF00;
+    font-weight: bold;
+}

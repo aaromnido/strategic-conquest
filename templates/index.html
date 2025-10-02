@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Conquest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/retro.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="top-bar">
+            <div id="turn-info">
+                <span id="turn-number">Turn: 1</span>
+                <span id="current-player">Player: HUMAN</span>
+            </div>
+            <div id="resources-info">
+                <span id="player-resources">Resources: 100</span>
+            </div>
+        </div>
+
+        <div id="main-game">
+            <canvas id="game-canvas" width="800" height="600"></canvas>
+
+            <div id="side-panel">
+                <div id="selection-info">
+                    <h3>Selection</h3>
+                    <div id="unit-info" class="info-section" style="display: none;">
+                        <p><strong>Type:</strong> <span id="unit-type"></span></p>
+                        <p><strong>Health:</strong> <span id="unit-health"></span></p>
+                        <p><strong>Movement:</strong> <span id="unit-movement"></span></p>
+                        <p><strong>Attack:</strong> <span id="unit-attack"></span></p>
+                        <p><strong>Defense:</strong> <span id="unit-defense"></span></p>
+                    </div>
+
+                    <div id="city-info" class="info-section" style="display: none;">
+                        <p><strong>Name:</strong> <span id="city-name"></span></p>
+                        <p><strong>Owner:</strong> <span id="city-owner"></span></p>
+                        <p><strong>Production:</strong> <span id="city-production"></span></p>
+
+                        <div id="production-menu">
+                            <h4>Build Unit:</h4>
+                            <button class="build-btn" data-unit="infantry">Infantry (50)</button>
+                            <button class="build-btn" data-unit="tank">Tank (100)</button>
+                            <button class="build-btn" data-unit="fighter">Fighter (80)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="game-log">
+                    <h3>Game Log</h3>
+                    <div id="log-messages"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottom-bar">
+            <button id="new-game-btn" class="game-btn">New Game</button>
+            <button id="save-game-btn" class="game-btn">Save</button>
+            <button id="load-game-btn" class="game-btn">Load</button>
+            <button id="end-turn-btn" class="game-btn primary">End Turn</button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2 id="modal-title">Game Over</h2>
+            <p id="modal-message"></p>
+            <button id="modal-close" class="game-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/sprites.js"></script>
+    <script src="/static/js/renderer.js"></script>
+    <script src="/static/js/input.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
